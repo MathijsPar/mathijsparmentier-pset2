@@ -28,4 +28,19 @@ public class FinalStory extends AppCompatActivity {
         finish();
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        String inputTextValue = storyTextView.getText().toString();
+        outState.putString("storyText", inputTextValue);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle inState) {
+        super.onRestoreInstanceState(inState);
+
+        storyTextView.setText(inState.getString("storyText"));
+    }
+
 }
